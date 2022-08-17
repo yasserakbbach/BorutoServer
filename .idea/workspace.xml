@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="18ad42d7-fb3c-41d4-ad16-af575f6d031b" name="Changes" comment="moved dependency versioning to gradle.properties">
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+    <list default="true" id="18ad42d7-fb3c-41d4-ad16-af575f6d031b" name="Changes" comment="added auto-reload config">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.conf" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.conf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,7 +88,14 @@
       <option name="project" value="LOCAL" />
       <updated>1660603668889</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="added auto-reload config">
+      <created>1660683972205</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1660683972205</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -106,6 +113,7 @@
     <MESSAGE value="init project" />
     <MESSAGE value="setup application and log config" />
     <MESSAGE value="moved dependency versioning to gradle.properties" />
-    <option name="LAST_COMMIT_MESSAGE" value="moved dependency versioning to gradle.properties" />
+    <MESSAGE value="added auto-reload config" />
+    <option name="LAST_COMMIT_MESSAGE" value="added auto-reload config" />
   </component>
 </project>
