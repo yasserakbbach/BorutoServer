@@ -31,6 +31,10 @@ dependencies {
     implementation("io.ktor:ktor-server-netty:$ktorNettyVersion")
     implementation("ch.qos.logback:logback-classic:$logbackVersion")
     implementation("io.ktor:ktor-serialization:$ktorVersion")
+    implementation("io.ktor:ktor-server-content-negotiation:$ktorVersion")
+    implementation("io.ktor:ktor-serialization-kotlinx-json:$ktorVersion")
+    implementation("io.ktor:ktor-server-call-logging:$ktorVersion")
+    implementation("io.ktor:ktor-server-default-headers:$ktorVersion")
 
     // Testing
     testImplementation("io.ktor:ktor-server-tests:$ktorVersion")
