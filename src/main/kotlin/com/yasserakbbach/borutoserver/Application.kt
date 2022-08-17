@@ -1,17 +1,16 @@
 package com.yasserakbbach.borutoserver
 
+import com.yasserakbbach.borutoserver.plugins.*
 import io.ktor.server.application.*
-import io.ktor.server.response.*
-import io.ktor.server.routing.*
 
 fun main(args: Array<String>): Unit =
     io.ktor.server.netty.EngineMain.main(args)
 
 @Suppress("unused")
 fun Application.module() {
-    routing {
-        get("/") {
-            call.respondText("Hello Yasser!")
-        }
-    }
+    configureKoin()
+    configureRouting()
+    configureSerialization()
+    configureMonitoring()
+    configureDefaultHeaders()
 }
