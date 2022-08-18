@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="18ad42d7-fb3c-41d4-ad16-af575f6d031b" name="Changes" comment="added auto-reload config">
+    <list default="true" id="18ad42d7-fb3c-41d4-ad16-af575f6d031b" name="Changes" comment="used plugins in Application module">
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/com/yasserakbbach/borutoserver/models/Hero.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,6 +22,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Kotlin File" />
+        <option value="Kotlin Data Class" />
       </list>
     </option>
   </component>
@@ -95,7 +95,42 @@
       <option name="project" value="LOCAL" />
       <updated>1660683972205</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="added koin for di and serialization dependencies">
+      <created>1660774305134</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1660774305134</updated>
+    </task>
+    <task id="LOCAL-00006" summary="added needed plugin dependencies">
+      <created>1660775912926</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1660775912926</updated>
+    </task>
+    <task id="LOCAL-00007" summary="added Routing, Serialization and Monitoring plugins">
+      <created>1660775968179</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1660775968179</updated>
+    </task>
+    <task id="LOCAL-00008" summary="added Koin and DefaultHeaders plugins">
+      <created>1660776007286</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1660776007286</updated>
+    </task>
+    <task id="LOCAL-00009" summary="used plugins in Application module">
+      <created>1660776030668</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1660776030668</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -114,6 +149,11 @@
     <MESSAGE value="setup application and log config" />
     <MESSAGE value="moved dependency versioning to gradle.properties" />
     <MESSAGE value="added auto-reload config" />
-    <option name="LAST_COMMIT_MESSAGE" value="added auto-reload config" />
+    <MESSAGE value="added koin for di and serialization dependencies" />
+    <MESSAGE value="added needed plugin dependencies" />
+    <MESSAGE value="added Routing, Serialization and Monitoring plugins" />
+    <MESSAGE value="added Koin and DefaultHeaders plugins" />
+    <MESSAGE value="used plugins in Application module" />
+    <option name="LAST_COMMIT_MESSAGE" value="used plugins in Application module" />
   </component>
 </project>
