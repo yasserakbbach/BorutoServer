@@ -15,4 +15,10 @@ object HeroResponseGenerator {
             success = false,
             message = "Heroes not Found."
         )
+
+    fun getNullNameParameterExceptionResponse(): HeroResponse =
+        HeroResponse(
+            success = false,
+            message = "Parameter <name> is required",
+        )
 }

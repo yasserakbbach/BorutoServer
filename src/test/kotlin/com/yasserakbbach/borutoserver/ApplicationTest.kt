@@ -3,6 +3,7 @@ package com.yasserakbbach.borutoserver
 import com.yasserakbbach.borutoserver.models.HeroResponse
 import com.yasserakbbach.borutoserver.util.HeroResponseGenerator.generateHeroesNotFoundResponse
 import com.yasserakbbach.borutoserver.util.HeroResponseGenerator.generateNumberFormatExceptionResponse
+import com.yasserakbbach.borutoserver.util.HeroResponseGenerator.getNullNameParameterExceptionResponse
 import com.yasserakbbach.borutoserver.util.HeroSample
 import io.ktor.client.request.*
 import io.ktor.client.statement.*
@@ -14,6 +15,7 @@ import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.json.Json
 import org.junit.jupiter.api.Test
 import kotlin.test.assertEquals
+import kotlin.test.assertFalse
 
 @InternalAPI
 class ApplicationTest {
@@ -97,6 +99,46 @@ class ApplicationTest {
         val expected = generateNumberFormatExceptionResponse()
         val actual = Json.decodeFromString<HeroResponse>(response.bodyAsText())
         assertEquals(expected, actual)
+    }
+
+    @Test
+    fun `given naruto as query search When calling API Then one single result is expected`() = testApplication {
+        val response = client.get("/boruto/heroes/search?name=naruto")
+        assertEquals(HttpStatusCode.OK, response.status)
+        val actual = Json.decodeFromString<HeroResponse>(response.bodyAsText()).heroes.size
+        assertEquals(1, actual)
+    }
+
+    @Test
+    fun `given sa as query search When calling API Then three results are expected`() = testApplication {
+        val response = client.get("/boruto/heroes/search?name=sa")
+        assertEquals(HttpStatusCode.OK, response.status)
+        val actual = Json.decodeFromString<HeroResponse>(response.bodyAsText()).heroes.size
+        assertEquals(3, actual)
+    }
+
+    @Test
+    fun `given missing name parameter When search hero API call Then response success is false`() = testApplication {
+        val response = client.get("/boruto/heroes/search")
+        assertEquals(HttpStatusCode.BadRequest, response.status)
+        val actual = Json.decodeFromString<HeroResponse>(response.bodyAsText())
+        val expected = getNullNameParameterExceptionResponse()
+        assertEquals(expected, actual)
+        assertFalse(actual.success)
+    }
+
+    @Test
+    fun `given non-existing hero name When search hero API call Then response list is empty`() = testApplication {
+        val response = client.get("/boruto/heroes/search?name=unknown")
+        assertEquals(HttpStatusCode.OK, response.status)
+        val actual = Json.decodeFromString<HeroResponse>(response.bodyAsText()).heroes
+        assertEquals(emptyList(), actual)
+    }
+
+    @Test
+    fun `given non-existing endpoint When calling API Then NotFound status code is expected`() = testApplication {
+        val response = client.get("/non-existing-endpoint")
+        assertEquals(HttpStatusCode.NotFound, response.status)
     }
 
     private fun Int.calculateNextPage(): Int? =
