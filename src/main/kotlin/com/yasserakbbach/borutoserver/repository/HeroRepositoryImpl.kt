@@ -47,7 +47,17 @@ class HeroRepositoryImpl : HeroRepository {
             else -> null
         }
 
-    override suspend fun searchHeroes(name: String?): HeroResponse {
-        TODO("Not yet implemented")
-    }
+    override suspend fun searchHeroes(name: String?): HeroResponse =
+        HeroResponse(
+            success = true,
+            message = name?.let { "Results for $name" },
+            heroes = findHeroesBy(name),
+        )
+
+    private fun findHeroesBy(name: String?): List<Hero> =
+        name?.run {
+            heroes.values.first().filter {
+                it.name.lowercase().contains(name.lowercase())
+            }
+        } ?: emptyList()
 }
