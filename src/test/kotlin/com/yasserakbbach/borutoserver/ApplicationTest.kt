@@ -1,6 +1,8 @@
 package com.yasserakbbach.borutoserver
 
 import com.yasserakbbach.borutoserver.models.HeroResponse
+import com.yasserakbbach.borutoserver.util.HeroResponseGenerator.generateHeroesNotFoundResponse
+import com.yasserakbbach.borutoserver.util.HeroResponseGenerator.generateNumberFormatExceptionResponse
 import com.yasserakbbach.borutoserver.util.HeroSample
 import io.ktor.client.request.*
 import io.ktor.client.statement.*
@@ -78,6 +80,23 @@ class ApplicationTest {
                 assertEquals(expected, actual)
             }
         }
+    }
+    @Test
+    fun `given non-existing page number When calling API Then error is expected`() = testApplication {
+        val response = client.get("/boruto/heroes?page=6")
+        assertEquals(HttpStatusCode.NotFound, response.status)
+        val expected = generateHeroesNotFoundResponse()
+        val actual = Json.decodeFromString<HeroResponse>(response.bodyAsText())
+        assertEquals(expected, actual)
+    }
+
+    @Test
+    fun `given non-number page format When calling API Then error is expected`() = testApplication {
+        val response = client.get("/boruto/heroes?page=yasser")
+        assertEquals(HttpStatusCode.BadRequest, response.status)
+        val expected = generateNumberFormatExceptionResponse()
+        val actual = Json.decodeFromString<HeroResponse>(response.bodyAsText())
+        assertEquals(expected, actual)
     }
 
     private fun Int.calculateNextPage(): Int? =
