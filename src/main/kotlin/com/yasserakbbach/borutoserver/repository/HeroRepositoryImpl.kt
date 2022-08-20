@@ -56,7 +56,7 @@ class HeroRepositoryImpl : HeroRepository {
 
     private fun findHeroesBy(name: String?): List<Hero> =
         name?.run {
-            heroes.values.first().filter {
+            heroes.values.flatten().filter {
                 it.name.lowercase().contains(name.lowercase())
             }
         } ?: emptyList()
