@@ -43,7 +43,7 @@ class HeroRepositoryImpl : HeroRepository {
 
     private fun Int.calculatePreviousPage(): Int? =
         when(this) {
-            in 2..5 -> minus(1)
+            in 2..heroes.size -> minus(1)
             else -> null
         }
 
