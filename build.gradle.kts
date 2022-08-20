@@ -38,8 +38,8 @@ dependencies {
     implementation("io.ktor:ktor-server-status-pages:$ktorVersion")
 
     // Testing
-    testImplementation("io.ktor:ktor-server-tests:$ktorVersion")
     testImplementation("org.jetbrains.kotlin:kotlin-test:$kotlinVersion")
+    testImplementation("io.ktor:ktor-server-test-host:$ktorVersion")
 
     // Koin
     implementation("io.insert-koin:koin-ktor:$koinVersion")
